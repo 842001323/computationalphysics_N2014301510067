@@ -23,7 +23,9 @@
 
 #### [No.6](https://www.zybuluo.com/842001323/note/541568)
 
-#### [No.7](https://www.zybuluo.com/842001323/note/549482)
+#### [No.7](https://www.zybuluo.com/842001323/note/549482)（此链接已失效）
+
+#### [No.8](https://www.zybuluo.com/842001323/note/549482)(vpython安装后anaconda、python无法正常使用？？)
 
 
 
