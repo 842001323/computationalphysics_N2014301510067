@@ -8,7 +8,7 @@ class randomwalk:
         self.x2=[]
         self.ave_x2=[]
         self.ave_x=[]
-        for i in range(5000):
+        for i in range(50000):
             self.x2.append([0])
             self.x.append([0])
             self.step_number.append([0])
