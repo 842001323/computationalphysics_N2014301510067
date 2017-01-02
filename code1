@@ -1,0 +1,60 @@
+import math
+import pylab as pl
+import random
+class randomwalk:
+    def __init__(self):
+        self.x=[]
+        self.step_number=[]
+        self.x2=[]
+        self.ave_x2=[]
+        self.ave_x=[]
+        for i in range(5000):
+            self.x2.append([0])
+            self.x.append([0])
+            self.step_number.append([0])
+    def run(self):
+        for i in range(len(self.x)):
+            while self.step_number[i][-1]<100:
+                a=random.uniform(0,1)
+                if a>0.5:
+                    self.x[i].append(self.x[i][-1]+1)
+                    self.step_number[i].append(self.step_number[i][-1]+1)
+                    self.x2[i].append(self.x[i][-1]*self.x[i][-1])
+                else:
+                    self.x[i].append(self.x[i][-1]-1)
+                    self.step_number[i].append(self.step_number[i][-1]+1)
+                    self.x2[i].append(self.x[i][-1]*self.x[i][-1])
+        b=0
+        for i in range(len(self.x[-1])):
+            for j in range(len(self.x)):
+                b=b+self.x2[j][i]
+            c=b/50000.0
+            b=0
+            self.ave_x2.append(c)
+        d=0
+        for i in range(len(self.x[-1])):
+            for j in range(len(self.x)):
+                d=d+self.x[j][i]
+            c=d/50000.0
+            d=0
+            self.ave_x.append(c)
+    def result(self):
+        ax1=pl.subplot(121)
+        ax2=pl.subplot(122)
+        pl.sca(ax1)
+        pl.plot(self.step_number[-1],self.ave_x,'*',label='<x>versus time')
+        pl.title('Random Walk in one dimension',fontsize=14)
+        pl.xlabel('step number',fontsize=14)
+        pl.ylabel('<x>',fontsize=14)
+        pl.legend(fontsize=14,loc='best')
+        pl.sca(ax2)
+        pl.plot(self.step_number[-1],self.ave_x2,'*',label='<x^2>versus time')
+        pl.title('Random Walk in one dimension',fontsize=14)
+        pl.xlabel('step number',fontsize=14)
+        pl.ylabel('<x^2>',fontsize=14)
+        pl.legend(fontsize=14,loc='best')
+        
+b =randomwalk()
+b.run()
+b.result()
+pl.show()
